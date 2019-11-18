@@ -15,7 +15,7 @@ Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
 
-const routes = [{ path: "*", component: PageNotFound }];
+const routes = [{ path: '*', component: PageNotFound }];
 
 const router = new VueRouter({ routes });
 

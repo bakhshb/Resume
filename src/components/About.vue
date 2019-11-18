@@ -4,7 +4,7 @@
           <h1 class="mb-0">{{resume.data.fname}}
             <span class="text-primary">{{resume.data.lname}}</span>
           </h1>
-          <div class="subheading mb-5">{{resume.data.address}} {{resume.mobile}}·
+          <div class="subheading mb-5">{{resume.data.address}}· {{resume.data.mobile}}·
             <a :href="'mailto:' + resume.data.email">{{resume.data.email}}</a>
           </div>
           <p class="lead mb-5">{{resume.data.goal}}</p>

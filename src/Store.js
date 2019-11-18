@@ -20,7 +20,7 @@ export default new Vuex.Store({
     SHOW_MESSAGE(state, data) {
       state.showmsg = data
       setTimeout(() => {
-              window.location.reload();
+        window.location.reload();
       }, 1000);
     }
   },
@@ -30,7 +30,7 @@ export default new Vuex.Store({
         .get("https://api.baraa.online/abouts/5dcdb75087e6ba300b676652")
         .then(function(response) {
           // handle success
-          console.log(response);
+          // console.log(response);
           commit("GET_DATA", response);
           commit("CHANGE_STATUS", false);
         })

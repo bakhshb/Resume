@@ -1,10 +1,8 @@
-<template>
-  <div>
-    <h1>404 Page Not Found</h1>
-  </div>
-</template>
 <script>
 export default {
-  name: "PageNotFound"
+  name: "PageNotFound",
+  created (){
+    window.location.href = "../404.html";
+  }
 };
 </script>

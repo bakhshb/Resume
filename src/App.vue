@@ -1,5 +1,6 @@
 <template>
   <div v-if="!loading">
+    <router-view/>
     <Menu />
     <About/>
     <hr class="m-0">

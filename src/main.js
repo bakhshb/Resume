@@ -10,13 +10,13 @@ import "@fortawesome/fontawesome-free/js/all.js";
 import "jquery/dist/jquery.min.js";
 import "bootstrap/dist/js/bootstrap.bundle.js";
 import "jquery.easing/jquery.easing.min.js";
-
+import Home from "./components/Home.vue";
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
 
 const routes = [
-  { path: '/', component: App },
+  { path: '/', component: Home },
   { path: '/404', component: PageNotFound },
   { path: '*', redirect: '/404' }
 ];

@@ -1,16 +1,6 @@
 <template>
   <div v-if="!loading">
     <router-view/>
-    <Menu />
-    <About/>
-    <hr class="m-0">
-    <Experience/>
-    <hr class="m-0">
-    <Education/>
-    <hr class="m-0">
-    <Skill/>
-    <hr class="m-0">
-    <Contact/>
   </div>
 </template>
 
@@ -21,12 +11,14 @@ import Experience from "./components/Experience";
 import Education from "./components/Education";
 import Skill from "./components/Skill";
 import Contact from "./components/Contact";
+import Home from "./components/Home";
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default {
   name: "App",
   components: {
+    Home,
     About,
     Menu,
     Experience,

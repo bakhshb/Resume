@@ -5,26 +5,14 @@
 </template>
 
 <script>
-import Menu from "./components/Menu";
-import About from "./components/About";
-import Experience from "./components/Experience";
-import Education from "./components/Education";
-import Skill from "./components/Skill";
-import Contact from "./components/Contact";
-import Home from "./components/Home";
+import Index from "./components/Index";
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default {
   name: "App",
   components: {
-    Home,
-    About,
-    Menu,
-    Experience,
-    Education,
-    Skill,
-    Contact
+    Index
   },
   created() {
     return this.$store.dispatch("callApi");

@@ -71,6 +71,20 @@
                 </div>
               </div>
 
+            <div class="form-group row">
+                <div class="field-errors" style="display:none;"></div>
+
+                <label for="email" class="col-sm-2 col-form-label">
+                  Are you a human
+                  <span class="asterisk">*</span>
+                </label>
+
+                <div class="col-sm-8">
+                  <vue-recaptcha ref="recaptcha" :sitekey="sitekey" :loadRecaptchaScript="true" @verify="onVerify">
+                  </vue-recaptcha>
+                </div>
+              </div>
+
               <div class="form-group row">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-8">
@@ -87,12 +101,18 @@
     </div>
   </section>
 </template>
+
 <script>
+import VueRecaptcha from 'vue-recaptcha';
+
 export default {
   name: "Contact",
+  components: { VueRecaptcha },
   data: function() {
     return {
-      contactme: []
+      contactme: [], 
+      sitekey: '6LdKU8QUAAAAAKNSrM1DqmIPeditLzu9N8RYx8Ui', 
+      verify: false
     };
   },
   computed: {
@@ -102,8 +122,8 @@ export default {
   },
   methods: {
     submitform() {
-      return this.$store
-        .dispatch("savecontact", this.contactme)
+      if (this.verify === true){
+        return this.$store.dispatch("savecontact", this.contactme)
         .then(response => {
           // show success message
           console.log("Success");
@@ -113,6 +133,13 @@ export default {
           // show error message
           console.log(err);
         });
+      }else{
+        this.$refs.recaptcha.reset()
+      }
+    },
+    onVerify: function (response) {
+      this.verify = true
+      console.log('Verify: ' + response)
     }
   }
 };

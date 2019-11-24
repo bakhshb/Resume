@@ -22,7 +22,7 @@ import Skill from "./Skill";
 import Contact from "./Contact";
 
 export default {
-  name: "Home",
+  name: "Index",
   components: {
     Menu,
     About,

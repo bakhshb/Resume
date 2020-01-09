@@ -18,7 +18,7 @@ export default new Vuex.Store({
       state.loading = loading;
     },
     SHOW_MESSAGE(state, data) {
-      state.showmsg = data
+      state.showmsg = data;
       setTimeout(() => {
         window.location.reload();
       }, 1000);
@@ -27,7 +27,7 @@ export default new Vuex.Store({
   actions: {
     callApi({ commit }) {
       axios
-        .get("https://api.baraa.online/abouts/5dcdb75087e6ba300b676652")
+        .get("https://api.baraa.online/abouts/5e1786b8f5623100304157cc")
         .then(function(response) {
           // handle success
           // console.log(response);
@@ -40,28 +40,33 @@ export default new Vuex.Store({
         });
     },
     savecontact({ commit }, data) {
-      axios.post('https://api.baraa.online/contacts', {
-        name: data.name,
-        email: data.email,
-        message: data.message
-
-      }).then((r) => {
-        //console.log(r);
-        commit('SHOW_MESSAGE', 'block')
-      }).catch((e) => {
-        //console.log(e);
-      });
+      axios
+        .post("https://api.baraa.online/contacts", {
+          name: data.name,
+          email: data.email,
+          message: data.message
+        })
+        .then(r => {
+          //console.log(r);
+          commit("SHOW_MESSAGE", "block");
+        })
+        .catch(e => {
+          //console.log(e);
+        });
     },
     sendemail({ commit }, data) {
-      axios.post('https://api.baraa.online/email', {
-        to: 'bakhshb@gmail.com',
-        subject: 'Resume Baraa Bakhsh' + data.email,
-        text: data.message
-      }).then((r) => {
-        //console.log(r);
-      }).catch((e) => {
-        //console.log(e);
-      });
+      axios
+        .post("https://api.baraa.online/email", {
+          to: "bakhshb@gmail.com",
+          subject: "Resume Baraa Bakhsh" + data.email,
+          text: data.message
+        })
+        .then(r => {
+          //console.log(r);
+        })
+        .catch(e => {
+          //console.log(e);
+        });
     }
   }
 });
